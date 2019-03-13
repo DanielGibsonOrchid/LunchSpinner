@@ -10,18 +10,13 @@ Generate Table
     tableDiv.innerHTML = `
     <table>
         <thead>
-            <th>#</th>
             <th>Lunch Place Name</th>
-
+            <th>Number of Votes</th>
             </thead>
             <tbody id="tableBody">
             </tbody>
         </table>
     `;
-            /*** Optional extra Column Headings:
-            <th>Distance from Orchid (in minutes)</th>
-            <th>Price Rating (out of 5)</th>
-            <th>Orchid's Rating (out of 5)</th> ***/
     
     let tableBody = document.getElementById('tableBody');
 
@@ -55,16 +50,10 @@ Generate Table Elements
     function generateHTMLTable(data){
         let rows = data.map(item => `
             <tr>
-                <td>${item.id}</td>
                 <td>${item.place}</td>
-            </tr>`    
-
-                /*** Optional Extra Column Data:
-                <td>${item.distance}</td>
-                <td>${item.price}</td>
-                <td>${item.rating}</td> ***/
-
-        ).join('');
+                <td>${item.votes}</td>
+            </tr>    
+        `).join('');
         tableBody.innerHTML = rows;
     };
 
@@ -72,12 +61,12 @@ Generate Table Elements
 Button to randomly select an item
 *****************/
     buttonDiv.innerHTML = `
-        <button id="button">Random Lunch Picker</button>
+        <button id="button">Random Pick</button>
     `;
     let button = document.getElementById('button');
     
     fieldDiv.innerHTML = `
-        <ul id=field>
+        <ul id="field" class="field">
         </ul>
     `;
     let field = document.getElementById('field');

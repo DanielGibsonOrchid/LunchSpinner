@@ -1,0 +1,69 @@
+body, html {
+    height: 100%;
+
+}
+p, h1, h3, .field {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    text-align: center;
+}
+p {
+    font-size: 22px;
+}
+a {
+    color: white;
+
+}
+.bg {
+    background-image: url("images/OrchidWeb-Home-Header-v3-2018.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+table {
+    border: 2px solid white;
+    border-collapse: collapse;
+    width: 50%;
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    margin: 0 auto;
+}
+th {
+    height: 50px;
+    text-align: left;
+}
+td {
+    height: 35px;
+}
+th, td {
+    padding-left: 50px;
+}
+button {
+    text-align: center;
+    color: white;
+    background: #4CAF50;
+    border: none;
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 22px;
+    transition-duration: 0.4s;
+    display: block;
+    cursor: pointer;
+    text-shadow: 0px 1px 0px #2f6627;
+    font-family: 'Poppins', sans-serif;
+    margin: 30px auto;
+}
+.button:hover {
+    border-color: white;
+    background-color: #000000;
+}
+.orchid {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.field {
+    font-size: 22px;
+}
