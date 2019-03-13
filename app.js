@@ -65,11 +65,7 @@ Button to randomly select an item
     `;
     let button = document.getElementById('button');
     
-    fieldDiv.innerHTML = `
-        <ul id="field" class="field">
-        </ul>
-    `;
-    let field = document.getElementById('field');
+    let field = document.getElementById('fieldDiv');
 
     function randomSelection(data){
         button.addEventListener("click", () => {
@@ -77,5 +73,13 @@ Button to randomly select an item
             field.innerHTML = data[randomNumber].place;
         });
     };
+
+    //Mouse Hover effect on button
+    button.addEventListener("mouseover", (event) => {
+        event.target.style.color = "black";
+    });
+    button.addEventListener("mouseout", (event) => {
+        event.target.style.color = "";
+    });
     
 }) //End ready

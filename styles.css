@@ -1,26 +1,25 @@
 body, html {
     height: 100%;
-
 }
-p, h1, h3, .field {
+
+p, h1, h3, .field, a {
     font-family: 'Poppins', sans-serif;
     color: #fff;
     text-align: center;
 }
+
 p {
     font-size: 22px;
 }
-a {
-    color: white;
 
-}
 .bg {
-    background-image: url("images/OrchidWeb-Home-Header-v3-2018.jpg");
+    background-image: url("images/lily-banse-365344-unsplash.jpg");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 table {
     border: 2px solid white;
     border-collapse: collapse;
@@ -29,17 +28,23 @@ table {
     font-family: 'Poppins', sans-serif;
     color: white;
     margin: 0 auto;
+    background-color: rgb(76, 175, 80, 0.75);
 }
+
 th {
     height: 50px;
     text-align: left;
+    font-size: 26px;
 }
+
 td {
     height: 35px;
 }
+
 th, td {
     padding-left: 50px;
 }
+
 button {
     text-align: center;
     color: white;
@@ -65,5 +70,6 @@ button {
     margin-right: auto;
 }
 .field {
-    font-size: 22px;
+    font-size: 26px;
+    background-color: rgb(76, 175, 80, 0.75);
 }
