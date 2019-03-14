@@ -21,28 +21,17 @@ Generate Table
     let tableBody = document.getElementById('tableBody');
 
 /*****************
-Fetch Data from Google Sheets using Sheetsu 
+Fetch Data from Google Sheets using TableTop.js 
 *****************/
-    function fetchData(url){
-        return fetch(url)
-        .then(checkStatus)
-        .then(response => response.json())
-        .catch(error => console.error("Looks like there was a problem", error))
-    };
-
-    function checkStatus(response) {
-        if(response.ok) {
-            return Promise.resolve(response);
-        } else {
-            return Promise.reject(new Error(response.statusText));
-        };
-    };
-
-    fetchData("https://sheetsu.com/apis/v1.0su/d92ac6635b02")
-        .then(data => {
-            generateHTMLTable(data);
-            randomSelection(data);
-    });
+    let tabletop = Tabletop.init({ 
+        key: 'https://docs.google.com/spreadsheets/d/1oLkyuty7b9fHUxWYUtmuV2v_UZcYR3WsWiSoV3b3BoE/edit?usp=sharing', 
+        callback: showData,
+        simpleSheet: true 
+    })
+    function showData(data, tabletop) {
+        generateHTMLTable(data);
+        randomSelection(data);
+    }
 
 /*****************
 Generate Table Elements
@@ -67,19 +56,50 @@ Button to randomly select an item
     
     let field = document.getElementById('fieldDiv');
 
+    // When the button is clicked - Loop through Votes column from the spreadsheet
+    // - Count each items number of votes and add it that many times to a new array 'storeItemsWithVotes'
     function randomSelection(data){
         button.addEventListener("click", () => {
-            let randomNumber = Math.floor(Math.random() * data.length);
-            field.innerHTML = data[randomNumber].place;
+            let storeItemsWithVotes = [];
+            for (i = 0; i < data.length; i++) {
+                if (data[i].votes === '1') {
+                    storeItemsWithVotes.push(data[i]);
+                } else if (data[i].votes === '2') {
+                    storeItemsWithVotes.push(data[i]);
+                    storeItemsWithVotes.push(data[i]);
+                } else if (data[i].votes === '3') {
+                    storeItemsWithVotes.push(data[i]);
+                    storeItemsWithVotes.push(data[i]);
+                    storeItemsWithVotes.push(data[i]);
+                } else if (data[i].votes === '4') {
+                    storeItemsWithVotes.push(data[i]);
+                    storeItemsWithVotes.push(data[i]);
+                    storeItemsWithVotes.push(data[i]);
+                    storeItemsWithVotes.push(data[i]);
+                } else if (data[i].votes === '5') {
+                    storeItemsWithVotes.push(data[i]);
+                    storeItemsWithVotes.push(data[i]);
+                    storeItemsWithVotes.push(data[i]);
+                    storeItemsWithVotes.push(data[i]);
+                    storeItemsWithVotes.push(data[i]);
+                } 
+            } 
+            
+            // Random number generator 
+            let randomNumber = Math.floor(Math.random() * storeItemsWithVotes.length);
+            field.innerHTML = storeItemsWithVotes[randomNumber].place;
+            
+            //button.disabled = true;
+            button.style.backgroundColor = "grey";
         });
     };
 
-    //Mouse Hover effect on button
+    // Mouse Hover effect on button
     button.addEventListener("mouseover", (event) => {
         event.target.style.color = "black";
     });
     button.addEventListener("mouseout", (event) => {
         event.target.style.color = "";
     });
-    
-}) //End ready
+
+}) // End ready
